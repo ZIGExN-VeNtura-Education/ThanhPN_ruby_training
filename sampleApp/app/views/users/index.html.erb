@@ -18,7 +18,8 @@
         <td><%= user.email %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, 'data-method' => :delete, data: { confirm: 'Are you sure?' } %></td> <%# data-method working!%>
+        <td><%= link_to 'Destroy', user, data: {method: :delete, confirm: 'Are you sure?' } %></td> <%# data-method working!%>
+        <%# button_to => generate ra form  %>
       </tr>
     <% end %>
   </tbody>
