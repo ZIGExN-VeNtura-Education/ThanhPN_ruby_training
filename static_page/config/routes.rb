@@ -23,9 +23,14 @@ Rails.application.routes.draw do
   # dung render trong controller de render view khac x
   # Chuoi noi suy = "#{}" x
   # Xoa tat ca khoang trang cuoi cung strip x
-  # Method chuoi
-  # Turbo link chi reload thang nao can reload thang nao. tuy nhien option reload se reload toan bo trang x
+  # Method chuỗi.
+  # Turbo link chi reload thang nao can reload thang nao. tuy nhiên option reload se reload toan bo trang x
   # media type stylesheet tag
-  # Tap trung core: Xu ly chuoi va hash, gem devise
+  # Tap trung core: Xu ly chuỗi  va hash, gem devise
   # No focus test
+  # strip => xóa
+  # ====================================
+  # form_with dựa vào thông tin của model (đã có hay chưa) để xác định đây là route update hay route tạo mới.
+  # active storage for image. (user)
+  # hash, gem devise
 end
