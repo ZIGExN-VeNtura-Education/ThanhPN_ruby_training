@@ -54,14 +54,14 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: $light-gray;
+  color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
 
   &:hover {
-    color: $light-gray;
+    color: white;
     text-decoration: none;
   }
 }
@@ -175,4 +175,35 @@ input {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+@media (max-width: 800px) {
+  footer {
+    small {
+      display: block;
+      float: none;
+      margin-bottom: 1em;
+    }
+    ul {
+      float: none;
+      padding: 0;
+      li {
+        float: none;
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
 }
