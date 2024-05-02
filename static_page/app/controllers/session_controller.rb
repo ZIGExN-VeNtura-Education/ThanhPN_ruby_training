@@ -1,18 +1,17 @@
 class SessionController < ApplicationController
   include SessionHelper
-  def new
-  end
+  def new; end
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user&.authenticate(params[:session][:password])
       log_in user
-      flash[:success] = "Login success"
-      (params[:session][:remember_me] == "1") ? remember(user) : forget(user)
-      redirect_to user
+      # flash[:success] = "Login success"
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+      redirect_back_or user
     else
-      flash.now[:danger] = "Invalid email or password"
-      render "new"
+      flash.now[:danger] = 'Invalid email or password'
+      render 'new'
     end
   end
 
