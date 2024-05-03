@@ -1,0 +1,9 @@
+<h1>Sample APPPP</h1>
+
+<p>Hi <%= @user.name %></p>
+
+<p>
+  Welcome to SAMPLE APPPP! Clik on the link below to active your account:
+</p>
+
+<%= link_to "Active", edit_account_activation_url(@user.activation_token, @user.email) %>
