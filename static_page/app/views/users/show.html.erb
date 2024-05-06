@@ -8,8 +8,15 @@
       </h1>
     </section>
   </aside>
+  <div class="col-md-8">
+    <!--    Render micropost if user have any of them-->
+    <% if @user.microposts.any? %>
+      <h3>Micropost (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+      <%= will_paginate @microposts %>
+    <% end %>
+  </div>
 </div>
-<!--<%#= @user.name %>, <%#= @user.email %>,-->
-<!--<%#= @user.created_at %>,-->
-<!--<%#= @user.updated_at %>,-->
-<%#= Time.now %>
+

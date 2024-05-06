@@ -2,6 +2,8 @@
 
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
+  # One user - many micropost. Delete microposts related after user deleted
+  has_many :microposts, dependent: :destroy
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   before_save { self.email = email.downcase }
@@ -49,11 +51,11 @@ class User < ApplicationRecord
   end
 
   def send_activation_email
-    UserMailer.account_activation(self).deliver_later
+    UserMailer.account_activation(self).deliver_now
   end
 
   def send_reset_password_email
-    UserMailer.password_reset(self).deliver_later
+    UserMailer.password_reset(self).deliver_now
   end
 
   def create_reset_digest
@@ -68,6 +70,10 @@ class User < ApplicationRecord
 
   def self.get_admin # => class method
     @user = User.where(admin: true)
+  end
+
+  def feed
+    Micropost.where('user_id = ?', id)
   end
   # https://viblo.asia/p/phan-biet-class-method-va-instance-method-trong-ruby-gDVK2MLA5Lj
 
